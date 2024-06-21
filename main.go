@@ -8,7 +8,9 @@ import (
 
 func main() {
 	e := echo.New()
-	e.GET("/", handler.LayoutHandler)
+	e.GET("/", handler.HomeHandler)
+
+	e.GET("/session", handler.SessionHandler)
 
 	e.Logger.Fatal(e.Start(":8085"))
 }

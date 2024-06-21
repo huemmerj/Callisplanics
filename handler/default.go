@@ -2,6 +2,7 @@ package handler
 
 import (
 	"callisplanics/layout"
+	"callisplanics/pages"
 
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
@@ -12,6 +13,11 @@ func HTML(c echo.Context, cmp templ.Component) error {
 	return cmp.Render(c.Request().Context(), c.Response().Writer)
 }
 
-func LayoutHandler(c echo.Context) error {
-	return HTML(c, layout.Layout())
+func HomeHandler(c echo.Context) error {
+	return HTML(c, layout.Layout(pages.Home()))
+}
+
+
+func SessionHandler(c echo.Context) error {
+	return HTML(c, layout.Layout(pages.Session()))
 }
