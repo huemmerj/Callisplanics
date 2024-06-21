@@ -1,6 +1,8 @@
 package handler
 
 import (
+	"callisplanics/layout"
+
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
 )
@@ -8,4 +10,8 @@ import (
 func HTML(c echo.Context, cmp templ.Component) error {
 	c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
 	return cmp.Render(c.Request().Context(), c.Response().Writer)
+}
+
+func LayoutHandler(c echo.Context) error {
+	return HTML(c, layout.Layout())
 }
