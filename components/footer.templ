@@ -1,0 +1,25 @@
+package components
+
+// create a list of navigation items
+
+type NavItem struct {
+	label string
+	url   string
+}
+
+var navItems = []NavItem{
+	{
+		label: "Home", url: "/",
+	},
+	{
+		label: "Session", url: "/session",
+	},
+}
+
+templ Footer() {
+	<div class="flex justify-around fixed bottom-0 left-0 w-full bg-gray-200 p-4">
+		for _, item := range navItems {
+			<a>{ item.label }</a>
+		}
+	</div>
+}
